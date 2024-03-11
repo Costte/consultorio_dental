@@ -1,0 +1,164 @@
+el odontograma
+Las alertas cuando se actualiza el paciente
+cambiar las alertas por mensajes como cuando se agreg los pacientes o doctores
+
+
+
+Resinas 500
+Blanqueamiento... 2000
+
+Incrustación
+-estética...3000
+-metalica... 1200
+
+
+Coronas 
+-estéticas... 4000
+-Metálica....1500
+-metal porcelana... 3000
+
+Extracción simple 500
+Extracción quirúrgica 2000
+
+Placas removibles
+
+Híbrido unilateral...3000
+Híbrido bilateral....6000
+
+Metálico
+Unilateral... 2000
+Bilateral....4000
+
+Placas totales
+Provisionales... 6000
+Definitivas....desde 12000
+
+Guardas...
+Acrílico... 2000
+Acetato 500
+
+ORTODONCIA.
+
+Inicio
+Bkt convencional 5000
+Bkt autoligado...8000
+Mensualidad 500
+
+ORTOPEDIA
+inicio 3000
+Mensualidad de 300
+
+
+--------------------------------------------
+
+Esto va en el formulario de pacientes del calendario
+
+ $consulta_eventos = "SELECT codigo FROM eventos;";
+                                            $resultado_evento = $conexion->query($consulta_eventos);
+
+                                            while ($fila_eventos = $resultado_evento->fetch_assoc()) {
+                                                $id_pacs = $fila_eventos["codigo"];
+                                            }
+                                            
+
+                                            $consulta_pacientes = "SELECT pacientes.id, pacientes.nombre, pacientes.apellido_paterno, pacientes.apellido_materno 
+                                                                    FROM pacientes LEFT JOIN eventos ON 
+                                                                    eventos.id_paciente = pacientes.id WHERE eventos.codigo = '$id_pacs';";
+                                            $resultado_pacientes = $conexion->query($consulta_pacientes);
+
+                                            while ($fila_pacientes = $resultado_pacientes->fetch_assoc()) {
+                                                $id_paciente = $fila_pacientes["id"];
+                                                $nombre_paciente = $fila_pacientes["nombre"] . " " . $fila_pacientes["apellido_paterno"] . " " . $fila_pacientes["apellido_materno"];
+                                                echo "<option value='$id_paciente'>$nombre_paciente</option>";
+
+
+
+
+Mira mi amor esos dos estatus quiero poner , el que dice estatus de deuda quiero que aparezca *pendiente* cuando aun te deban dinero y *Pagada* cuando ya hayan terminado de pagar
+
+Estatus de deuda
+Pendiente 
+Pagada
+
+Aqui seria el estatus de tus citas, la que dice *Activa* es cuando aun no pasa o esta entre los proximos dias, la *Cancelada* es cuando un paciente cancela por equis o ye situacion y la que dice *Concluida* son aquellas que ya pasaron y si vinieron los pacientes 
+Estatus de Cita
+Activa
+Cancelada
+Concluida
+
+
+  echo "<select name='estatus_cita'>";
+        echo "<option value='Activa'" . ($row["estatus_cita"] == "Activa" ? " selected" : "") . ">Activa</option>";
+        echo "<option value='Cancelada'" . ($row["estatus_cita"] == "Cancelada" ? " selected" : "") . ">Cancelada</option>";
+        echo "<option value='Concluida'" . ($row["estatus_cita"] == "Concluida" ? " selected" : "") . ">Concluida</option>";
+        echo "</select>";
+        echo "</td>";
+
+        ---------------------------------------------------------------------
+
+
+Instrumentos y Herramientas:
+
+Exploradores dentales.
+Espejos dentales.
+Pinzas dentales.
+Fórceps dentales.
+Sondas periodontales.
+Turbinas y piezas de mano.
+Contraángulos y angulados.
+Piezas de mano de ultrasonido.
+Fresas dentales.
+Pulidores y limpiadores dentales.
+Instrumentos de endodoncia.
+Instrumentos de periodoncia.
+Instrumentos de cirugía oral.
+Materiales Dentales:
+
+Resinas compuestas.
+Cementos dentales.
+Materiales de impresión dental (siliconas, alginatos, etc.).
+Materiales de obturación (amalgamas, ionómeros de vidrio, etc.).
+Materiales de restauración (composites, ionómeros, etc.).
+Materiales de blanqueamiento dental.
+Materiales de cementación de coronas y puentes.
+Materiales de desinfección y esterilización.
+
+Equipos y Aparatos:
+
+Unidades dentales.
+Radiografías (intraorales y extraorales).
+Autoclaves y esterilizadores.
+Equipos de ultrasonido.
+Equipos de blanqueamiento dental.
+Equipos de rayos X.
+Sillones dentales.
+Compresores de aire.
+Aspiradoras dentales.
+Equipos de esterilización.
+Fotopolimerizadores.
+
+Suministros de Oficina:
+
+Papelería (papel, bolígrafos, etc.).
+Carpetas y archivos.
+Formularios médicos y de historial clínico.
+Computadoras y software de gestión dental.
+Impresoras y consumibles.
+Equipo de seguridad y protección personal (guantes, mascarillas, gafas protectoras, batas, etc.).
+
+Suministros de Higiene y Limpieza:
+
+Productos de limpieza y desinfección.
+Toallitas desinfectantes.
+Jabón y desinfectante de manos.
+Guantes desechables.
+Bolsas para residuos biológicos.
+Productos de limpieza y mantenimiento de equipos.
+
+
+
+
+
+----------------------------------------------------------------------------------------------
+
+validar los update de fechas del calendario que se actualice en la carpeta citas

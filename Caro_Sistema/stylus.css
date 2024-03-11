@@ -1,0 +1,1501 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --body_color: #ffacac;
+  --sidebar_color: #ffbfa9;
+  --primary_color: #ffebb4;
+  --primary_color_ligth: #d57ae60d;
+  --toggle_color: #dddddd;
+  --text_color: #a91079;
+  --caja_color: #f3ccff;
+
+  --tran_03: all 0.2s ease;
+  --tran_04: all 0.3s ease;
+  --tran_05: all 0.4s ease;
+
+  --white: #fafafb;
+  --purple: #9a67ea;
+  --blue-light: #04d4c3;
+  --blue-dark: #2a73c2;
+  --green: #2c7b90;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--body_color);
+  transition: var(--tran_05);
+}
+
+::selection {
+  background-color: var(--primary_color);
+  color: #ffffff;
+}
+/* ------------------------ barra de Dezplazamiento INIcio--------------------------------*/
+/* ------------------------ barra de Dezplazamiento INIcio--------------------------------*/
+/* Estilo de la barra de desplazamiento */
+/* Para navegadores Webkit como Chrome y Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e451e4;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c214ee;
+}
+
+/* Para navegadores Firefox */
+/* Firefox utiliza una pseudo-clase diferente para la barra de desplazamiento */
+/* Esto es necesario para aplicar estilos a la barra de desplazamiento de Firefox */
+/* Cambia los colores según tus preferencias */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #e451e4 #f1f1f1;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #e451e4;
+  border-radius: 20px;
+  border: 3px solid #f1f1f1;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #c214ee;
+}
+
+/* ------------------------ barra de Dezplazamiento FIN--------------------------------*/
+/* ------------------------ barra lateral INIcio------------------------------------*/
+
+.barralateral {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  padding: 10px 14px;
+  background-color: var(--sidebar_color);
+  transition: var(--tran_05);
+  z-index: 100;
+  box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.barralateral.close {
+  width: 88px;
+}
+
+.barralateral li {
+  height: 50px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.barralateral .cabecera .image,
+.barralateral .icon {
+  min-width: 60px;
+  border-radius: 6px;
+}
+
+.barralateral .icon {
+  min-width: 60px;
+  border-radius: 6px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.barralateral .textos,
+.barralateral .icon {
+  color: var(--text_color);
+  transition: var(--tran_03);
+}
+
+.barralateral .textos {
+  font-size: 17px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 1;
+}
+
+.barralateral.close .textos {
+  opacity: 0;
+}
+
+.barralateral .cabecera {
+  position: relative;
+}
+
+.barralateral .cabecera .logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.nombres {
+  margin-top: 2px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.doctor {
+  font-size: 16px;
+  margin-top: -2px;
+  display: block;
+}
+
+.barralateral .cabecera .toggles {
+  position: absolute;
+  top: 20%;
+  right: 0px;
+  height: 35px;
+  width: 35px;
+  background-color: var(--primary_color);
+  color: var(--sidebar-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+  cursor: pointer;
+  transition: var(--tran_05);
+}
+
+.barralateral.close .toggles {
+  width: 100%;
+  top: 20%;
+}
+.barralateral .menur {
+  margin-top: 40px;
+}
+.barralateral li.search-box {
+  border-radius: 6px;
+  background-color: var(--primary_color_ligth);
+  cursor: pointer;
+  transition: var(--tran_05);
+}
+
+.barralateral li.search-box input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: var(--primary_color_ligth);
+  color: var(--text_color);
+  border-radius: 6px;
+  font-size: 17px;
+  font-weight: 500;
+  transition: var(--tran_05);
+}
+
+.barralateral li a {
+  list-style: none;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: var(--tran_03);
+}
+
+.barralateral li a:hover {
+  background-color: var(--primary_color);
+}
+
+.barralateral li a:hover .icon,
+.barralateral li a:hover .textos {
+  color: #ff67e7;
+}
+
+.barralateral .menu-bar {
+  height: calc(100% - 55px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.barralateral .menu-bar .mode {
+  border-radius: 6px;
+  background-color: var(--primary_color_ligth);
+  position: relative;
+  transition: var(--tran_05);
+}
+
+/*----------------------Aqui Termina la barra lateral------------------*/
+
+/*----------------------Aqui empieza el cuerpo------------------*/
+.home {
+  position: absolute;
+  top: 0;
+  left: 250px;
+  height: 100vh;
+  width: calc(100% - 250px);
+  background-color: var(--body-color);
+  transition: var(--tran_05);
+}
+
+.home .textos {
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--text_color);
+  padding: 12px 60px;
+}
+
+.barralateral.close ~ .home {
+  left: 78px;
+  height: 100vh;
+  width: calc(100% - 78px);
+}
+
+.containe {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.1fr 0.1fr 0.1fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  justify-content: stretch;
+  align-content: stretch;
+  justify-items: stretch;
+  align-items: stretch;
+  grid-template-areas:
+    "Alertas Alertas"
+    "lado_izquierdo derecho_1"
+    "derecho_2 derecho_2";
+}
+
+.lado_izquierdo {
+  grid-area: lado_izquierdo;
+  margin: 3px;
+  background-color: var(--caja_color);
+  border-radius: 36px;
+  box-shadow: inset 7px 7px 14px #acacac, inset -7px -7px 14px #ffffff;
+  overflow: auto;
+  padding: 10px;
+  max-height: 350px;
+}
+
+.derecho_1 {
+  grid-area: derecho_1;
+  max-height: 350px;
+  height: 380px;
+  overflow: auto;
+  margin: 3px;
+  background-color: var(--caja_color);
+  border-radius: 36px;
+  box-shadow: inset 7px 7px 14px #acacac, inset -7px -7px 14px #ffffff;
+}
+
+.derecho_2 {
+  grid-area: derecho_2;
+  margin: 3px;
+  background-color: var(--caja_color);
+  border-radius: 36px;
+  box-shadow: inset 7px 7px 14px #acacac, inset -7px -7px 14px #ffffff;
+  width: 100%;
+  height: auto;
+  max-height: 800px;
+  padding: 20px;
+}
+
+.bienvenido {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/*----------------------Aqui Termine el cuerpo------------------*/
+
+/*----------------------Aqui empieza  las notas------------------*/
+
+.containe_notas {
+  max-width: 80%;
+  width: 400px;
+  margin: 0 auto;
+}
+
+/*PERFIL*/
+.perfil {
+  padding: 5px;
+}
+.perfil span {
+  color: var(--text_color);
+  letter-spacing: 1px;
+  font-size: 20px;
+  margin: 5px;
+}
+
+#fecha {
+  color: var(--text_color);
+  font-size: 15px;
+}
+
+/*AGREGAR TAREA*/
+
+.agregar-tarea {
+  background-color: var(--white);
+  border-radius: 15px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  gap: 70px;
+  padding: 10px;
+}
+
+.agregar-tarea input {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--sidebar_color);
+  padding-left: 10px;
+}
+.agregar-tarea input::placeholder {
+  font-size: 1.1rem;
+  color: var(--white);
+}
+
+.agregar-tarea i {
+  font-size: 35px;
+  color: var(--purple);
+}
+.agregar-tarea i:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+/*SECCION DE TAREA */
+
+.seccion-tarea h3 {
+  color: var(--text_color);
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.seccion-tarea li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-image: linear-gradient(
+    to bottom,
+    #ff6464,
+    #ff6a6a,
+    #ff7171,
+    #ff7777,
+    #ff7d7d
+  );
+  border-radius: 15px;
+  padding: 5px;
+  color: var(--white);
+  margin: 5px 0;
+}
+.seccion-tarea i {
+  font-size: 20px;
+}
+
+.seccion-tarea > ul p {
+  font-size: 1rem;
+}
+
+.seccion-tarea i:hover {
+  color: var(--text_color);
+  cursor: pointer;
+}
+
+.line-through {
+  text-decoration: line-through;
+  color: var(--text_color);
+}
+/*----------------------Aqui termina las notas------------------*/
+/*----------------------Aqui empieza la tabla de citas principal------------------*/
+
+.tabla_citasp {
+  font-size: 9px !important;
+  padding: 20px !important;
+}
+
+/*----------------------Aqui termina la tabla de citas principal------------------*/
+/*----------------------Aqui Empieza pacientes PHP------------------*/
+/*----------------------Aqui Empieza pacientes PHP------------------*/
+
+.containe_paci {
+  display: grid;
+  grid-template-columns: 0.8fr 1.5fr 0.9fr;
+  grid-template-rows: 0.1fr 0.1fr 0.1fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  justify-content: stretch;
+  align-content: stretch;
+  justify-items: stretch;
+  align-items: stretch;
+  grid-template-areas:
+    "Alertas Alertas Alertas"
+    "formu_1 tbl_paci tbl_paci"
+    "formu_1 tbl_paci tbl_paci";
+}
+
+.Alertas {
+  grid-area: Alertas;
+  margin: 3px;
+  background-color: var(--caja_color);
+  border-radius: 36px;
+  box-shadow: inset 7px 7px 14px #acacac, inset -7px -7px 14px #ffffff;
+  height: 150px;
+}
+
+.formu_1 {
+  grid-area: formu_1;
+  margin: 3px;
+  background-color: var(--caja_color);
+  border-radius: 36px;
+  box-shadow: inset 7px 7px 14px #acacac, inset -7px -7px 14px #ffffff;
+  height: 800px;
+  max-height: 800px;
+  position: relative;
+  box-sizing: border-box;
+  max-width: 300px;
+  overflow: hidden;
+}
+
+.tbl_paci {
+  grid-area: tbl_paci;
+  margin: 3px;
+  background-color: var(--caja_color);
+  border-radius: 36px;
+  box-shadow: inset 7px 7px 14px #acacac, inset -7px -7px 14px #ffffff;
+  overflow: auto;
+  box-sizing: border-box;
+  width: 100%;
+  height: 800px;
+  max-height: 800px;
+  padding: 20px;
+}
+
+/*----------------------Aqui Empieza Formulario pacientes------------------*/
+.int_form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+}
+.pacienteForm {
+  margin-top: -40px;
+}
+.input_group {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  position: static;
+  max-width: 240px;
+  margin-left: 15px;
+}
+
+.input_group label.label {
+  font-size: 0.75rem;
+  color: #818cf8;
+  font-weight: 700;
+  position: relative;
+  top: 0.5rem;
+  margin: 0 0 0 7px;
+  padding: 0 3px;
+  background: #e8e8e8;
+  width: fit-content;
+  box-sizing: border-box;
+}
+
+.input_group input[type="text"].input,
+.input_group input[type="number"].input,
+.input_group input[type="date"].input,
+.input_group input[type="tel"].input,
+.input_group input[type="email"].input {
+  padding: 11px 10px;
+  font-size: 0.75rem;
+  border: 2px #818cf8 solid;
+  border-radius: 5px;
+  background: #e8e8e8;
+  color: #818cf8;
+  width: auto;
+  max-width: 210px;
+}
+.input_group textarea,
+.input_group select {
+  padding: 11px 10px;
+  font-size: 0.75rem;
+  border: 2px #818cf8 solid;
+  border-radius: 5px;
+  background: #e8e8e8;
+  color: #818cf8;
+  width: auto;
+  max-width: 210px;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: #6c5ce7;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 5px;
+  transition: all ease 0.1s;
+  box-shadow: 0px 5px 0px 0px #a29bfe;
+  margin-left: 15px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #6515e7;
+}
+
+button:active {
+  transform: translateY(5px);
+  box-shadow: 0px 0px 0px 0px #a29bfe;
+}
+
+.titulo {
+  font-size: 25px;
+  color: var(--text_color);
+  display: block;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+/*----------------------Aqui Empieza la alerta MODAL------------------*/
+.modale {
+  display: none;
+  position: relative;
+  top: 0px;
+  left: 10px;
+  width: 100%;
+  height: 100%;
+  font-size: 15px;
+  text-align: center;
+  border-radius: 15px;
+  background-color: rgba(129, 243, 153, 0.5);
+}
+.modal {
+  display: none;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  width: 100%;
+  height: 100%;
+  font-size: 15px;
+  text-align: center;
+  border-radius: 15px;
+  background-color: rgba(129, 137, 243, 0.5);
+}
+.modal2 {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 50%;
+  font-size: 15px;
+  text-align: center;
+  border-radius: 15px;
+  background-color: rgba(129, 243, 153, 0.5);
+}
+
+.mensajes {
+  margin-top: 10px;
+}
+.cerrar {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cerrar:hover {
+  color: red;
+}
+
+/*----------------------Aqui Empieza el buscador de usuarios-----------------*/
+
+.tbl_paci .resultados,
+.result_doct .resultados {
+  width: 100%; /* Opcional: Hacer que la tabla ocupe el 100% del contenedor */
+  border-collapse: collapse; /* Colapsar los bordes de la tabla */
+  /* Estilos adicionales según tus necesidades */
+  color: var(--text_color);
+  font-size: 25px;
+}
+.result_general {
+  width: auto;
+  height: auto;
+  border-collapse: collapse;
+  margin: 20px auto;
+  font-size: 13px;
+}
+.result_deudad {
+  width: 100%;
+  height: auto;
+  border-collapse: collapse;
+  margin: 20px auto;
+  font-size: 10px;
+  padding: 20px auto !important;
+}
+.resultados th,
+.resultados td,
+.result_general th,
+.result_general td,
+.result_deudad th,
+.result_deudad td {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  text-align: left;
+  border-radius: 5px;
+}
+.resultados th,
+.result_general th,
+.result_deudad th {
+  background-color: var(--sidebar_color);
+}
+.resultados tr:nth-child(even),
+.result_general tr:nth-child(even),
+.result_deudad tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.resultados tr:hover,
+.result_general tr:hover,
+.result_deudad tr:hover {
+  background-color: #91f1d4;
+}
+
+.result_busqueda {
+  width: auto;
+  height: auto;
+  border-collapse: collapse;
+  margin: 20px auto;
+  font-size: 15px;
+}
+.resultados h3,
+.titulo_bus,
+.titulo {
+  text-align: center;
+}
+
+.tbl_paci .buscador_form {
+  background-color: var(--white);
+  border-radius: 15px;
+  height: 70px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+  padding: 10px;
+  font-size: 15px;
+  width: auto;
+}
+.buscador_form label {
+  font-weight: 700;
+  font-size: 18px;
+  position: relative;
+  top: 0.5rem;
+  margin: 0 0 0 7px;
+}
+.buscador_form input[type="text"] {
+  font-size: 1rem;
+  width: 130px;
+  border: 2px #818cf8 solid;
+  border-radius: 5px;
+  background: #e8e8e8;
+  color: #818cf8;
+}
+
+.buscador_form input[type="submit"] {
+  border: none;
+  outline: none;
+  background-color: #6c5ce7;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 5px;
+  transition: all ease 0.1s;
+  box-shadow: 0px 5px 0px 0px #a29bfe;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.buscador_form input[type="submit"]:hover {
+  background-color: #614eee;
+}
+
+.buscador_form_gin {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  background: rgba(229, 206, 232, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 5px;
+}
+
+/*----------------------Aqui empieza DOCTORES---------------------*/
+/*----------------------Aqui empieza DOCTORES---------------------*/
+
+.container_doc {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-rows: 0.4fr 0.7fr 1.9fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "alertas_doc alertas_doc"
+    "form_doct form_doct"
+    "result_doct result_doct";
+}
+
+.alertas_doc {
+  grid-area: alertas_doc;
+  margin: 3px;
+  background-color: var(--caja_color);
+  border-radius: 36px;
+  box-shadow: inset 7px 7px 14px #acacac, inset -7px -7px 14px #ffffff;
+  height: 150px;
+}
+
+.form_doct {
+  grid-area: form_doct;
+  margin: 3px;
+  background-color: var(--caja_color);
+  border-radius: 36px;
+  box-shadow: inset 7px 7px 14px #acacac, inset -7px -7px 14px #ffffff;
+  position: relative;
+  height: 220px;
+}
+
+.result_doct {
+  grid-area: result_doct;
+  margin: 3px;
+  background-color: var(--caja_color);
+  border-radius: 36px;
+  box-shadow: inset 7px 7px 14px #acacac, inset -7px -7px 14px #ffffff;
+  overflow: auto;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  max-height: 600px;
+}
+
+/*----------------------Aqui empieza el formulario de doctor---------------------*/
+
+.doctorForm {
+  display: flex;
+  width: 600px;
+  flex-wrap: wrap;
+  align-content: space-between;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  padding-top: 25px;
+}
+
+/*----------------------Aqui empieza CITAS---------------------*/
+/*----------------------Aqui empieza CITAS---------------------*/
+
+.container_citas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.1fr 0.1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Alertas Alertas"
+    "calendario_citas calendario_citas"
+    "nota_pen nota_pen";
+}
+.Alertas_calendario {
+  grid-area: Alertas;
+  margin: 3px;
+  background-color: var(--caja_color);
+  border-radius: 36px;
+  box-shadow: inset 7px 7px 14px #acacac, inset -7px -7px 14px #ffffff;
+  height: 150px;
+  margin-bottom: 0;
+}
+
+.calendario_citas {
+  grid-area: calendario_citas;
+  margin: 3px;
+  background-color: var(--caja_color);
+  border-radius: 36px;
+  box-shadow: inset 7px 7px 14px #acacac, inset -7px -7px 14px #ffffff;
+  display: inline-flex;
+  width: 100%;
+  height: 600px;
+  max-height: 600px;
+  position: relative;
+}
+
+.nota_pen {
+  grid-area: nota_pen;
+  margin: 3px;
+  background-color: var(--caja_color);
+  border-radius: 36px;
+  box-shadow: inset 7px 7px 14px #acacac, inset -7px -7px 14px #ffffff;
+  width: 100%;
+  height: auto;
+  max-height: 800px;
+  padding: 20px;
+}
+
+/*----------------------------------Aqui inicia el calendario---------*/
+
+.calendario_ext {
+  height: auto;
+  width: 100%;
+  font-size: 15px;
+  margin: 20px;
+  padding: 5px;
+  background-color: var(--white);
+  overflow: hidden;
+  position: static;
+}
+
+.calendario_int {
+  border: transparent;
+}
+
+.calendario1 {
+  padding: 2px;
+  height: 100%;
+}
+
+/*-------------------------------------Evento extraordinario-----------------*/
+.container_eventos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.4fr 1.9fr 0.7fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Alertas Alertas"
+    "eventos_predefinido eventos_predefinido"
+    "eventos_predefinido eventos_predefinido";
+}
+
+.Alertas {
+  grid-area: Alertas;
+}
+
+.eventos_predefinido {
+  grid-area: eventos_predefinido;
+  margin: 3px;
+  background-color: var(--caja_color);
+  border-radius: 36px;
+  box-shadow: inset 7px 7px 14px #acacac, inset -7px -7px 14px #ffffff;
+  font-size: 15px;
+  padding: 10px;
+}
+.external-events {
+  margin-bottom: 1em;
+  margin-right: 1em;
+  margin-top: 1.5em;
+  height: 350px;
+  border: 1px solid violet;
+  border-radius: 10px;
+  overflow: auto;
+  padding: 1em;
+  background-color: var(--primary_color);
+  font-size: 10px;
+}
+
+.tabla_eventos {
+  font-size: 15px !important;
+  margin: 5px;
+}
+/*--------------------------------MOdal CITAS INICIO-----------------*/
+/* Estilos del modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(206, 31, 230);
+  background-color: rgba(206, 31, 230, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-footer {
+  padding-top: 16px;
+  border-top: 1px solid #e5e5e5;
+  text-align: right;
+}
+
+/*--------------------------------formularios de actualizacion----------------*/
+/*--------------------------------formularios de actualizacion-----------------*/
+.swal2-popup {
+  font-size: 16px; /* Tamaño de fuente */
+  background-color: rgba(206, 31, 230, 0.4);
+  width: 1000px;
+  height: auto;
+}
+.swal2-popup h3,
+.swal2-popup h2,
+.swal2-popup h4 {
+  color: #e0a3f0;
+}
+/* Estilos para el formulario */
+#formularioEditar {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #e0a3f0;
+  color: var(--text_color);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(163, 70, 206, 0.1);
+}
+
+/* Estilos para los campos de entrada */
+#formularioEditar input[type="text"],
+#formularioEditar input[type="email"],
+#formularioEditar input[type="date"],
+#formularioEditar input[type="number"],
+#formularioEditar input[type="tel"],
+#formularioEditar textarea,
+#formularioEditar select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #7c1dd4;
+  border-radius: 5px;
+  color: #7c1dd4;
+}
+
+/* Estilos para el botón de envío */
+#formularioEditar input[type="submit"] {
+  width: 100%;
+  background-color: #ff6f91; /* rosa claro */
+  color: #eccfeb;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estilos para el botón de envío al pasar el mouse */
+#formularioEditar input[type="submit"]:hover {
+  background-color: #ff4d6d; /* rosa más oscuro */
+}
+
+/* Estilos para los mensajes de error */
+.error {
+  color: #ff0000; /* rojo */
+  font-size: 12px;
+}
+
+/* Estilos para los mensajes de éxito */
+.success {
+  color: #008000; /* verde */
+  font-size: 12px;
+}
+
+/*--------------------------------Aqui empieza las utilidades-------------------------*/
+/*--------------------------------Aqui empieza las utilidades-------------------------*/
+.contain_uti {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.4fr 0.1fr 1.5fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Alertas Alertas"
+    "Ingresos Egresos"
+    "Busqueda_gastos Busqueda_gastos";
+}
+
+.Ingresos {
+  grid-area: Ingresos;
+  background-color: var(--caja_color);
+  border-radius: 36px;
+  margin: 3px;
+  box-shadow: inset 7px 7px 14px #acacac, inset -7px -7px 14px #ffffff;
+  overflow: auto;
+  padding: 10px;
+  max-height: 350px;
+}
+
+.Egresos {
+  grid-area: Egresos;
+  max-height: 350px;
+  height: 380px;
+  overflow: auto;
+  margin: 3px;
+  background-color: var(--caja_color);
+  border-radius: 36px;
+  box-shadow: inset 7px 7px 14px #acacac, inset -7px -7px 14px #ffffff;
+}
+
+.Busqueda_gastos {
+  grid-area: Busqueda_gastos;
+  margin: 3px;
+  background-color: var(--caja_color);
+  border-radius: 36px;
+  box-shadow: inset 7px 7px 14px #acacac, inset -7px -7px 14px #ffffff;
+  overflow: auto;
+  width: 100%;
+  height: auto;
+  max-height: 800px;
+  padding: 20px;
+}
+
+.busquedas_gen {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/*--------------------------------Aqui empieza las historial medico-------------------------*/
+/*--------------------------------Aqui empieza las historial medico-------------------------*/
+.tabla-container {
+  height: auto;
+  max-height: 800px; /* Altura máxima del contenedor */
+  overflow-y: auto; /* Hace que el contenedor sea desplazable verticalmente si hay más datos */
+  background-color: var(--caja_color);
+}
+
+.histo_medico_tabla {
+  width: 100%; /* Ajusta el ancho de la tabla según sea necesario */
+  height: auto;
+  max-height: 800px; /* Altura máxima de la tabla */
+  overflow-y: auto; /* Hace que la tabla sea desplazable verticalmente si hay más datos */
+}
+
+.histo_medico_tabla table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-family: Arial, sans-serif;
+}
+
+.histo_medico_tabla td,
+.histo_medico_tabla th {
+  padding: 8px;
+}
+
+.histo_medico_tabla tr:nth-child(odd) {
+  background-color: #ffc0cb; /* Rosa */
+}
+
+.histo_medico_tabla td,
+.histo_medico_tabla th,
+.comentario-textarea {
+  color: #800080; /* Morado */
+  background-color: white;
+  border-bottom: 2px solid #ffc0cb; /* Rosa */
+}
+
+.histo_medico_tabla th {
+  text-align: center;
+  font-weight: bold;
+  color: #6515e7;
+}
+
+/*--------------------------------Aqui empieza las odontograma-------------------------*/
+/*--------------------------------Aqui empieza las odontograma-------------------------*/
+
+.odontograma {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: AliceBlue;
+  box-sizing: content-box;
+}
+
+.cuadrante {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px;
+}
+.cuadrante_sup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px;
+  justify-content: center;
+}
+.cuadrante_inf {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px;
+  justify-content: center;
+}
+.cuandrantes_int {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px;
+  justify-content: center;
+}
+.refere_diente {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px;
+  justify-content: center;
+}
+
+
+.refere_titu {
+  text-align: center;
+  color: #800080;
+}
+.titulo_diente_refe{
+  position: relative;
+  font-weight: bold;
+  color: #800080;
+  font-size: 15px;
+  pointer-events: none;
+  transform: rotate(0deg);
+}
+.cont_seccion{
+  width: 130px;
+  height: 130px;
+  text-align: left;
+}
+
+.diente_1 #q5 {
+  border: 4px solid red;
+}
+.diente_2 #q5 {
+  border: 4px solid blue;
+}
+.diente_3 #q5 {
+  border: 4px solid red;
+  background: blue;
+}
+.diente_4 #q5, .diente_4 #q1, .diente_4 #q2, .diente_4 #q3, .diente_4 #q4{
+  border: 2px solid lime;
+  background: green;
+}
+.diente_5 #q5, .diente_5 #q1, .diente_5 #q2, .diente_5 #q3, .diente_5 #q4{
+  border: 2px solid Maroon;
+  background: red;
+}
+.diente_6 #q5, .diente_6 #q1, .diente_6 #q2, .diente_6 #q3, .diente_6 #q4{
+  border: 4px solid red;
+}
+.diente_7 #q5, .diente_7 #q1, .diente_7 #q2, .diente_7 #q3, .diente_7 #q4{
+  border: 4px solid blue;
+}
+
+.diente_re {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 2px;
+  background-color: #ffffff;
+  border: 0.5px solid #000000;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: rotate(
+    -45deg
+  ); /* Ajusta el ángulo de rotación según tus necesidades */
+}
+
+.diente {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 2px;
+  background-color: #ffffff;
+  border: 0.5px solid #000000;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: rotate(
+    -45deg
+  ); /* Ajusta el ángulo de rotación según tus necesidades */
+  cursor: pointer;
+}
+.titulo_diente {
+  position: absolute;
+  transform: rotate(
+    45deg
+  ); /* Ajusta el ángulo de rotación según tus necesidades */
+  top: 18px;
+  left: 20px;
+  font-weight: bold;
+  color: black;
+  font-size: 15px;
+  pointer-events: none;
+}
+.seccion {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background-color: #eeeeee;
+  border: 0.5px solid #000000;
+}
+
+.seccion:hover {
+  border: 3px solid black;
+}
+
+.q1 {
+  top: 0;
+  left: 50%;
+}
+.q2 {
+  top: 0;
+  left: 0;
+}
+.q3 {
+  bottom: 0;
+  left: 0;
+}
+.q4 {
+  bottom: 0;
+  right: 0;
+}
+.q5 {
+  top: 25%;
+  left: 24%;
+  width: 50%;
+  height: 50%;
+  background-color: #aca2a2;
+  transform: rotate(0deg);
+  border-radius: 50%;
+}
+
+/* Estilo para el modal */
+.modal {
+  display: none; /* Ocultar el modal por defecto */
+  position: fixed; /* Posición fija para que aparezca sobre el contenido */
+  z-index: 1; /* Colocar el modal encima de todo */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Habilitar desplazamiento si el contenido es demasiado grande */
+  background-color: rgba(0, 0, 0, 0.4); /* Fondo semi-transparente */
+}
+
+/* Estilo para el contenido del modal */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* Centrar vertical y horizontalmente */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Ancho del modal */
+}
+
+/* Estilo para el botón de cerrar */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+#idPacienteInfo {
+  display: none;
+}
+
+/*-----------------------------Historial Medico------------------------------*/
+.histo_medi {
+  margin: 30px;
+  padding: 5px;
+  border: double 10px Indigo;
+  background: Lavender;
+}
+.left_histo{
+  font-size: 50px;
+  color: #800080;
+  width: 30px;
+  height: 30px;
+}
+/*---------------------------------------MODAL Odontograma----------------------*/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/* Estilos para pantallas medianas (entre 768px y 1199px de ancho) */
+@media only screen and (min-width: 768px) and (max-width: 1100px) {
+  /* Aquí puedes poner estilos específicos para pantallas medianas */
+
+  .diente {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    margin: 2px;
+    background-color: #ffffff;
+    border: 0.5px solid #000000;
+    border-radius: 50%;
+    overflow: hidden;
+    transform: rotate(
+      -45deg
+    ); /* Ajusta el ángulo de rotación según tus necesidades */
+    cursor: pointer;
+  }
+  .titulo_diente {
+    position: absolute;
+    transform: rotate(
+      45deg
+    ); /* Ajusta el ángulo de rotación según tus necesidades */
+    top: 12px;
+    left: 13px;
+    font-weight: bold;
+    color: white;
+    font-size: 8px;
+    pointer-events: none;
+  }
+  .seccion {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background-color: #eeeeee;
+    border: 0.5px solid #000000;
+  }
+  
+  .seccion:hover {
+    border: 3px solid black;
+  }
+  
+  .q1 {
+    top: 0;
+    left: 50%;
+  }
+  .q2 {
+    top: 0;
+    left: 0;
+  }
+  .q3 {
+    bottom: 0;
+    left: 0;
+  }
+  .q4 {
+    bottom: 0;
+    right: 0;
+  }
+  .q5 {
+    top: 25%;
+    left: 24%;
+    width: 50%;
+    height: 50%;
+    background-color: #aca2a2;
+    transform: rotate(0deg);
+    border-radius: 50%;
+  }
+  .diente_re {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    margin: 2px;
+    background-color: #ffffff;
+    border: 0.5px solid #000000;
+    border-radius: 50%;
+    overflow: hidden;
+    transform: rotate(
+      -45deg
+    ); /* Ajusta el ángulo de rotación según tus necesidades */
+  }
+  
+  .titulo_diente_refe{
+    font-size: 10px;
+  }
+  
+
+}

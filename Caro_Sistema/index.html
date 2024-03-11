@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Inicio de Sesion</title>
+  </head>
+
+  <style>
+    html {
+      font-size: 16px; /* Establecer el tamaño base en 16px */
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-image: linear-gradient(
+        to left bottom,
+        #750c7a,
+        #823697,
+        #8d55b3,
+        #9972ce,
+        #a58ee9
+      );
+      overflow: hidden;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-auto-rows: 1fr;
+      gap: 0px 0px;
+      grid-auto-flow: row;
+      justify-content: center;
+      align-content: center;
+      justify-items: stretch;
+      align-items: center;
+      grid-template-areas: "loger imager";
+    }
+
+    .loger {
+      grid-area: loger;
+      font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+    }
+
+    .login-container {
+            border-radius: 27px;
+            background: #e0e0e0;
+            box-shadow: inset 10px 10px 20px #afafaf,
+            inset -10px -10px 20px #ffffff;
+            overflow: hidden;
+            width: 300px;
+            padding: 20px;
+            box-sizing: border-box;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #a149b8;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            color: #a149b8;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            background-color: #fff;
+        }
+
+        .form-group button {
+            background-color: #21e7ac;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group button:hover {
+            background-color: #28d662;
+        }
+
+
+    .imager {
+      grid-area: imager;
+    }
+
+    .iimagen {
+      display: block;
+      width: 30rem;
+      height: 50rem;
+   
+    }
+    .iimagen img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 8rem;
+    }
+
+
+
+    .form__group {
+  position: relative;
+  padding: 20px 0 0;
+  width: 100%;
+  max-width: 180px;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 17px;
+  color: #fff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+  color: transparent;
+}
+
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 17px;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: #9b9b9b;
+  pointer-events: none;
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #116399, #38caef);
+  border-image-slice: 1;
+}
+
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: #38caef;
+  font-weight: 700;
+}
+
+/* reset input */
+.form__field:required, .form__field:invalid {
+  box-shadow: none;
+}
+  </style>
+  <body>
+    <div class="container">
+      <div class="loger">
+
+        <div class="login-container">
+          <div class="login-header">
+              <h2>SMALL SMILE</h2>
+          </div>
+          <form class="login-form" method="post">
+              <div class="form-group">
+                  <label for="username">Usuario:</label>
+                  <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required>
+              </div>
+              <div class="form-group">
+                  <label for="password">Contraseña:</label>
+                  <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+              </div>
+              <div class="form-group">
+                  <button type="button" onclick="login()">Iniciar Sesión</button>
+              </div>
+
+
+          </form>
+      </div>
+  
+
+      </div>
+
+      <div class="imager">
+        <div class="iimagen">
+          <img src="./images/dentista_diente.png" alt="" />
+        </div>
+      </div>
+
+
+    </div>
+
+    <script>
+      function login() {
+        // Obtiene los valores del formulario
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        // Realiza una solicitud al servidor para verificar la autenticación
+        fetch("verificar_login.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username: username, password: password }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.authenticated) {
+              alert("Inicio de sesión exitoso");
+              // Redirigir a la página de inicio después del inicio de sesión
+              window.location.href = "index.php";
+            } else {
+              alert("Inicio de sesión fallido. Verifica tus credenciales.");
+            }
+          })
+          .catch((error) => console.error("Error al iniciar sesión:", error));
+      }
+    </script>
+
+  </body>
+</html>
